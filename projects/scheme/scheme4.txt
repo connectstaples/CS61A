@@ -1,0 +1,998 @@
+# === Part 1: Evaluator === # 
+
+Q: What types of expressions are represented as Pairs?
+Choose the number of the correct choice:
+0) Call expressions and special forms
+1) All expressions are represented as Pairs
+2) Only special forms
+3) Only call expressions
+? 0
+-- OK! --
+
+
+Q: What expression in the body of scheme_eval finds the value of a name?
+Choose the number of the correct choice:
+0) env.find(name)
+1) env.lookup(expr)
+2) scheme_symbolp(expr)
+3) scheme_forms.SPECIAL_FORMS[first](rest, env)
+? 1
+-- OK! --
+
+Q: How do we know if a given combination is a special form?
+Choose the number of the correct choice:
+0) Check if the expression is in the dictionary SPECIAL_FORMS
+1) Check if the first element in the list is a symbol and that the
+   symbol is in the dictionary SPECIAL_FORMS
+2) Check if the first element in the list is a symbol
+? 1
+-- OK! --
+
+Q: What is the difference between applying builtins and applying user-defined procedures?
+(Choose all that apply)
+
+I.   User-defined procedures open a new frame; builtins do not
+II.  Builtins simply execute a predefined Python function; user-defined
+     procedures must evaluate additional expressions in the body
+III. Builtins have a fixed number of arguments; user-defined procedures do not
+
+---
+Choose the number of the correct choice:
+0) III only
+1) I, II and III
+2) II only
+3) I and III
+4) II and III
+5) I and II
+6) I only
+? 5
+-- OK! --
+
+Q: What exception should be raised for the expression (1)?
+Choose the number of the correct choice:
+0) AssertionError
+1) SchemeError("unknown identifier: 1")
+2) SchemeError("malformed list: (1)")
+3) SchemeError("1 is not callable")
+? 3
+-- OK! --
+
+
+# === Problem 1 === # 
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> global_frame.define("x", 3)
+>>> global_frame.parent is None
+
+? True
+-- OK! --
+>>> global_frame.define("x", 2)
+>>> global_frame.lookup("x")
+? 2
+-- OK! --
+
+>>> global_frame.lookup("foo")
+Choose the number of the correct choice:
+0) SchemeError
+1) None
+2) 3
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 1 > Suite 1 > Case 2
+(cases remaining: 4)
+
+>>> from scheme import *
+>>> first_frame = create_global_frame()
+>>> first_frame.define("x", 3)
+>>> second_frame = Frame(first_frame)
+>>> second_frame.parent == first_frame
+? True
+-- OK! --
+
+>>> second_frame.define("y", False)
+>>> second_frame.lookup("x")
+? 3
+-- OK! --
+
+>>> second_frame.lookup("y")
+? 
+False
+-- OK! --
+
+
+# === Problem 2 === #
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 1
+(cases remaining: 14)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, twos, env) # Type SchemeError if you think this errors
+? 4
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 2
+(cases remaining: 13)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> plus = BuiltinProcedure(scheme_add) # + procedure
+>>> scheme_apply(plus, nil, env) # Remember what (+) evaluates to in scheme
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 3
+(cases remaining: 12)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> twos = Pair(2, Pair(2, nil))
+>>> oddp = BuiltinProcedure(scheme_oddp) # odd? procedure
+>>> scheme_apply(oddp, twos, env) # Type SchemeError if you think this errors
+
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 4
+(cases remaining: 11)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 5
+(cases remaining: 10)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 6
+(cases remaining: 9)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 7
+(cases remaining: 8)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 8
+(cases remaining: 7)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 9
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 10
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 11
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 12
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 13
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 2 > Suite 1 > Case 14
+(cases remaining: 1)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> one = Pair(1, nil)
+>>> def test_func(arg, env):
+...     return arg + (1 if env else 0)
+>>> test_procedure = BuiltinProcedure(test_func, True)
+>>> scheme_apply(test_procedure, one, env)
+? 2
+-- OK! --
+
+# === Problem 3 === #
+
+Problem 3 > Suite 1 > Case 1
+(cases remaining: 5)
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> expr = read_line('(+ 2 2)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+? 4
+-- OK! --
+
+>>> scheme_eval(Pair('+', Pair(2, Pair(2, nil))), create_global_frame()) # Type SchemeError if you think this errors
+? 4
+-- OK! --
+
+>>> expr = read_line('(+ (+ 2 2) (+ 1 3) (* 1 4))')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+? 12
+-- OK! --
+
+>>> expr = read_line('(yolo)')
+>>> scheme_eval(expr, create_global_frame()) # Type SchemeError if you think this errors
+
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 2 > Case 1
+(cases remaining: 4)
+
+
+scm> (* (+ 3 2) (+ 1 7)) ; Type SchemeError if you think this errors
+? 40
+-- OK! --
+
+scm> (1 2) ; Type SchemeError if you think this errors
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 2 > Case 2
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 2 > Case 3
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 3 > Suite 2 > Case 4
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 3 unlocked.
+
+# === Problem 4 === # 
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 1
+(cases remaining: 9)
+
+Q: What is the structure of the expressions argument to do_define_form?
+Choose the number of the correct choice:
+0) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+1) Pair(A, B), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+2) Pair(A, B), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+3) Pair(A, Pair(B, nil)), where:
+       A is the symbol being bound,
+       B is the value that should be bound to A
+4) Pair('define', Pair(A, Pair(B, nil))), where:
+       A is the symbol being bound,
+       B is an expression whose value should be evaluated and bound to A
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 1 > Case 2
+(cases remaining: 8)
+
+Q: What method of a Frame instance will bind
+a value to a symbol in that frame?
+Choose the number of the correct choice:
+0) make_child_frame
+1) define
+2) lookup
+3) bindings
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 1
+(cases remaining: 7)
+
+
+scm> (define size 2)
+? size
+-- OK! --
+
+scm> size
+? 2
+-- OK! --
+
+scm> (define x (+ 7 3))
+? x
+-- OK! --
+
+scm> x
+? 10
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 2
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 3
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 4
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 5
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 6
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 4 > Suite 2 > Case 7
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 4 unlocked.
+
+Backup... 100% complete
+
+
+
+# === Problem 5 === # 
+Problem 5 > Suite 1 > Case 1
+(cases remaining: 4)
+
+Q: What is the structure of the expressions argument to do_quote_form?
+Choose the number of the correct choice:
+0) A, where:
+       A is the quoted expression
+1) Pair(A, nil), where:
+       A is the quoted expression
+2) Pair('quote', Pair(A, nil)), where:
+       A is the quoted expression
+3) [A], where:
+       A is the quoted expression
+? 1
+-- OK! --
+
+Problem 5 > Suite 2 > Case 1
+(cases remaining: 3)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> do_quote_form(Pair(3, nil), global_frame)
+? (3 ())
+-- Not quite. Try again! --
+
+? '(Pair(3, nil), global_frame)
+-- Not quite. Try again! --
+
+? 3
+-- OK! --
+
+>>> do_quote_form(Pair('hi', nil), global_frame)
+? Hi 
+-- Not quite. Try again! --
+
+? 'hi'
+-- OK! --
+
+>>> expr = Pair(Pair('+', Pair('x', Pair(2, nil))), nil)
+>>> do_quote_form(expr, global_frame) # Make sure to use Pair notation
+? Pair('+', Pair('x', Pair(2, nil)))
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 3 > Case 1
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 4 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 5 unlocked.
+
+Backup... 100% complete
+Backup successful for user: sean_villegas@berkeley.edu
+URL: https://okpy.org/cal/cs61a/sp25/scheme/backups/PrQ0G4
+
+OK is up to date
+
+
+# === Problem 6 === # 
+
+Problem 6 > Suite 1 > Case 1
+(cases remaining: 8)
+
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> eval_all(Pair(2, nil), env)
+Choose the number of the correct choice:
+0) 2
+1) SchemeError
+? 0
+-- OK! --
+
+>>> eval_all(Pair(4, Pair(5, nil)), env)
+
+Choose the number of the correct choice:
+0) 4
+1) SchemeError
+2) (4 5)
+3) 5
+? 3
+-- OK! --
+
+>>> eval_all(nil, env) # return None (meaning undefined)
+---------------------------------------------------------------------
+Problem 6 > Suite 1 > Case 2
+(cases remaining: 7)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 1
+(cases remaining: 6)
+
+scm> (begin (+ 2 3) (+ 5 6))
+? 11
+-- OK! --
+
+scm> (begin (define x 3) x)
+? 3
+-- OK! --
+
+
+scm> (begin 30 '(+ 2 2))
+
+Choose the number of the correct choice:
+0) (+ 2 2)
+1) 30
+2) '(+ 2 2)
+3) 4
+? 0
+-- OK! --
+scm> (define x 0)
+? x
+-- OK! --
+
+scm> (begin (define x (+ x 1)) 42 (define y (+ x 1)))
+? y
+-- OK! --
+
+scm> x
+
+? 1
+-- OK! --
+
+scm> y
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 3
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 4
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 5
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 6 > Suite 2 > Case 6
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 6 unlocked.
+
+
+# === Problem 7 === # 
+------------------------------------
+Problem 7 > Suite 1 > Case 1
+(cases remaining: 5)
+
+
+scm> (lambda (x y) (+ x y)) ;; An lambda procedure is displayed exactly as it is written
+
+? (lambda (x y) (+ x y))
+-- OK! --
+
+scm> (lambda (x)) ; type SchemeError if you think this causes an error
+? SchemeError
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 2
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 1 > Case 3
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 1
+(cases remaining: 2)
+
+>>> from scheme_reader import *
+>>> from scheme import *
+>>> env = create_global_frame()
+>>> lambda_line = read_line("(lambda (a b c) (+ a b c))")
+>>> lambda_proc = do_lambda_form(lambda_line.rest, env)
+>>> lambda_proc.formals # use single quotes ' around strings in your answer
+Choose the number of the correct choice:
+0) Pair(Pair('a', Pair('b', Pair('c', nil))))
+1) Pair('+', Pair('a', Pair('b', Pair('c', nil))))
+2) Pair('a', Pair('b', Pair('c', nil)))
+? 2
+-- OK! --
+
+>>> lambda_proc.body # the body is a *Scheme list* of expressions! Make sure your answer is a properly nested Pair.
+Choose the number of the correct choice:
+0) Pair(Pair('+', Pair('a', Pair('b', Pair('c', nil)))), nil)
+1) Pair('+', Pair('a', Pair('b', Pair('c', nil))))
+2) Pair('a', Pair('b', Pair('c')))
+3) Pair('+', 'a', 'b', 'c')
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 7 > Suite 2 > Case 2
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 7 unlocked.
+
+
+# === Problem 8 === # 
+
+Problem 8 > Suite 1 > Case 1
+(cases remaining: 6)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> formals = Pair('a', Pair('b', Pair('c', nil)))
+>>> vals = Pair(1, Pair(2, Pair(3, nil)))
+>>> frame = global_frame.make_child_frame(formals, vals)
+>>> global_frame.lookup('a') # Type SchemeError if you think this errors
+
+? SchemeError
+-- OK! --
+
+>>> frame.lookup('a')        # Type SchemeError if you think this errors
+? 1
+-- OK! --
+
+>>> frame.lookup('b')        # Type SchemeError if you think this errors
+? 2
+-- OK! --
+
+>>> frame.lookup('c')        # Type SchemeError if you think this errors
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 2
+(cases remaining: 5)
+
+>>> from scheme import *
+>>> global_frame = create_global_frame()
+>>> frame = global_frame.make_child_frame(nil, nil)
+>>> frame.parent is global_frame
+? True
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 1 > Case 3
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 1
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 2
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 8 > Suite 2 > Case 3
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 8 unlocked.
+
+Backup... 100% complete
+
+
+# === Problem 9 === #
+
+
+=====================================================================
+Assignment: Scheme Interpreter Project
+OK, version v1.18.1
+=====================================================================
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unlocking tests
+
+At each "? ", type what you would expect the output to be.
+Type exit() to quit
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 1
+(cases remaining: 7)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 1 > Case 2
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 2 > Case 1
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 2 > Case 2
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 3 > Case 1
+(cases remaining: 3)
+
+scm> (define x 5)
+
+? x
+-- OK! --
+
+scm> (define outer (lambda (x)
+....   (lambda () (print x)))) 
+
+? outer
+-- OK! --
+
+scm> (define inner (outer 2))
+? inner
+-- OK! --
+
+scm> (inner) ;; which x is accessed? which frame is the parent?
+? 2
+-- OK! --
+
+--------------------------------------------------------------------
+
+# === Problem 10 === # 
+
+Problem 10 > Suite 1 > Case 1
+(cases remaining: 7)
+
+
+scm> (define (f x y) (+ x y))
+? f
+-- OK! --
+
+scm> f
+Choose the number of the correct choice:
+0) (lambda (x y) (+ x y))
+1) (define f (lambda (x y) (+ x y)))
+2) (f (x y) (+ x y))
+3) (lambda (f x y) (+ x y))
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 2
+(cases remaining: 6)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 3
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 4
+(cases remaining: 4)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 5
+(cases remaining: 3)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 6
+(cases remaining: 2)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 1
+(cases remaining: 1)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+OK! All cases for Problem 10 unlocked.
+
+
+
+# === Problem 11 === #
+
+Problem 11 > Suite 1 > Case 1
+(cases remaining: 2)
+
+
+scm> (define y 1)
+? y
+-- OK! --
+
+scm> (define f (mu (x) (+ x y)))
+
+? f
+-- OK! --
+
+scm> (define g (lambda (x y) (f (+ x x))))
+? g
+-- OK! --
+? 13
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 1
+(cases remaining: 1
+
+
+# === Problem 12 === # 
+
+Problem 12 > Suite 1 > Case 1
+(cases remaining: 9)
+
+
+scm> (and)
+Choose the number of the correct choice:
+0) #f
+1) #t
+2) SchemeError
+? #t
+-- OK! --
+
+scm> (and 1 #f)
+Choose the number of the correct choice:
+0) #t
+1) 1
+2) #f
+? #f
+-- OK! --
+
+scm> (and (+ 1 1) 1)
+? 1
+-- OK! --
+
+scm> (and #f 5)
+? #f
+-- OK! --
+
+scm> (and 4 5 (+ 3 3))
+? 6
+-- OK! --
+
+scm> (not (and #t #f 42 (/ 1 0)))
+? #t
+-- OK! --
+
+
+scm> (or)
+Choose the number of the correct choice:
+? #f
+-- OK! --
+
+scm> (or (+ 1 1))
+Choose the number of the correct choice:
+0) 2
+1) #f
+2) #t
+? 0
+-- OK! --
+
+scm> (not (or #f))
+? #t
+-- OK! --
+
+scm> (define (zero) 0)
+? zero
+-- OK! --
+
+scm> (or (zero) 3)
+
+? 0
+-- OK! --
+
+scm> (or 4 #t (/ 1 0))
+
+? 4
+-- OK! --
+
+
+# === Problem 13 === # 
+
+---------------------------------------------------------------------
+Problem 13 > Suite 1 > Case 1
+(cases remaining: 6)
+
+
+scm> (cond ((> 2 3) 5)
+....       ((> 2 4) 6)
+....       ((< 2 5) 7)
+....       (else 8))
+? 7
+-- OK! --
+
+scm> (cond ((> 2 3) 5)
+....       ((> 2 4) 6)
+....       (else 8))
+? 8
+-- OK! --
+
+scm> (cond ((= 1 1))
+....       ((= 4 4) 'huh)
+....       (else 'no))
+
+? #t
+-- OK! --
+
+scm> (cond ((and #f 2) 'whats)
+....       ((and 1 #t 2))
+....       ((> 2 3) 'going)
+....       (else 'on))
+? 2
+-- OK! --
+
+-
+
+
+# === Problem 14 === # 
+
+
+Problem 14 > Suite 1 > Case 1
+(cases remaining: 9)
+
+
+scm> (define x 1)
+? x
+-- OK! --
+
+scm> (let ((x 5))
+....    (+ x 3))
+? 8
+-- OK! --
+
+scm> x
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 14 > Suite 1 > Case 2
+(cases remaining: 8)
+
+
+scm> (let ((a 1) (b a)) b)
+Choose the number of the correct choice:
+0) 1
+1) x
+2) y
+3) SchemeError
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 14 > Suite 1 > Case 3
+(cases remaining: 7)
+
+
+scm> (let ((x 5))
+....    (let ((x 2)
+....          (y x))
+....        (+ y (* x 2))))
+
+? 9
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 14 > Suite 1 > Case 4
+(cases remaining: 6)
+
+
+scm> (let ((a 2) (a 3)) (+ a a)) ; how should we catch something like this?
+
+? SchemeError
+-- OK! --
+
+scm> (let ((y 2 3)) (+ y y)) ; should this be an allowable form?
+? SchemeError
+-- OK! --
+
+
+
+

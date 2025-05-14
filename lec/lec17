@@ -1,0 +1,291 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## CS61a, Prof Denero\n",
+    "### Generators, Spring 25\n",
+    "#### Sean Villegas\n",
+    "\n",
+    "\n",
+    "#### **[Videos](https://www.youtube.com/watch?v=MG5lJNfMjFA&list=PL6BsET-8jgYXnY-7vDJXIv2N5xW98rJTZ&index=3)**\n",
+    "\n",
+    "Iterators: \n",
+    "- a way to process elements of a container value sequentially, an _iterator_ is an object that provides sequential access to values, one by one\n",
+    "    - iterator always remembers its own position\n",
+    "    - next(iter(some_list))\n",
+    "\n",
+    "Iterable: \n",
+    "- Any value that produces iterators is called an _iterable_ value\n",
+    "    - an iterable value is anything that can be passed to the built in iter function \n",
+    "\n",
+    "- A generator function is a function that yields values instead of returning them\n",
+    "- A normal function returns once; a generator function can yield multiple times\n",
+    "- A generator is an iterator created automatically by calling a generator function\n",
+    "- When a generator function is called, it returns a generator that iterates over its yields"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def evens(start, end):\n",
+    "    \"\"\"\n",
+    "    >>> list(evens(1, 10)) # runs for exhaustion \n",
+    "    [2, 4, 6, 8]\n",
+    "    >>> t = evens(2, 10) # set it up, generator function doesnt run \n",
+    "    >>> next(t)\n",
+    "    2\n",
+    "    >>> next(t)\n",
+    "    4 \n",
+    "    >>> q = evens(2, 4)\n",
+    "    >>> next(t)\n",
+    "    2\n",
+    "    >>> next(t)\n",
+    "    StopIteration Error\n",
+    "    \"\"\"\n",
+    "    even = start + (start % 2)\n",
+    "    while even < end: \n",
+    "        yield even\n",
+    "        even += 2 \n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A yield from statement is shorthand for a for statement that goes through all the elements in the iterator "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\"\"\"\n",
+    ">>> list(a_then_b([3, 4], [5, 6]))\n",
+    "[3, 4, 5, 6]\n",
+    "\"\"\"\n",
+    "def a_then_b(a, b):\n",
+    "    for x in a:\n",
+    "        yield x \n",
+    "    for x in b: \n",
+    "        yield x \n",
+    "\n",
+    "def a_then_b(a, b):\n",
+    "    yield from a \n",
+    "    yield from b \n",
+    "\n",
+    "## recursive way to count down\n",
+    "\n",
+    "def countdown(k):\n",
+    "    if k > 0: \n",
+    "        yield k \n",
+    "        for x in countdown(k - 1):\n",
+    "            yield x\n",
+    "\n",
+    "\n",
+    "def countdown_yield_from_ex(k):\n",
+    "    if k > 0: \n",
+    "        yield k \n",
+    "        yield from countdown(k - 1)\n",
+    "    else: \n",
+    "        yield 'Blast off' # this will print lat element when you write `for k in countdown(3): print(k)`\n",
+    "\n",
+    "def prefixes(s):\n",
+    "    \"\"\"\n",
+    "    >>> list(prefixes('both)) # normal prefixes\n",
+    "    >>> list(substrings('tops)) # prints prefixes and its substrings prefixes \n",
+    "    \"\"\"\n",
+    "    if s:\n",
+    "        yield from prefixes(s[:-1])\n",
+    "        yield s\n",
+    "def substrings(s):\n",
+    "    if s:\n",
+    "        yield from prefixes(s)\n",
+    "        yield from substrings(s[1:])\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Partitions** \n",
+    "\n",
+    "In this example:\n",
+    "- Yield: contribute one element\n",
+    "- Yield from: contribute a whole group of elements to the final output \n",
+    "- generators are easier to write, and more efficient on gpu due to lazy computation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def count_partitions(number, at_most):\n",
+    "    if number < 0:\n",
+    "        # There is no way to represent a negative number\n",
+    "        return 0\n",
+    "    elif number == 0:\n",
+    "         # There is only one way to represent zero\n",
+    "        return 1\n",
+    "    elif at_most == 0:\n",
+    "        # There is only one way to represent a number using one (2^0)\n",
+    "        return 1\n",
+    "    else:\n",
+    "        # The representation may contains 2^at_most or not\n",
+    "        contains = count_partitions(number - pow(2, at_most), at_most)\n",
+    "        not_contains = count_partitions(number, at_most - 1)\n",
+    "        return contains + not_contains\n",
+    "    \n",
+    "\n",
+    "def partitions(n, m):\n",
+    "    \"\"\"\n",
+    "    >>> for p in partitions(6, 4): print(s)\n",
+    "    \"\"\"\n",
+    "    if n > 0 and m > 0: \n",
+    "        if n == m:\n",
+    "            yield str(m)\n",
+    "        for p in partitions(n-m, m):\n",
+    "            yield p + ' + ' + str(m)\n",
+    "        yield from partitions(n, m-1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "\n",
+    "#### **Lecture**\n",
+    "Exam Question, Deneros advice:\n",
+    "\n",
+    "[Midterm 2 Study Guide](https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf)\n",
+    "- think about how you are going to get to the input, to the output, through recursive calls \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Tree:\n",
+    "    \"\"\"\n",
+    "    Built-in isinstance function: returns True if branch has a class that is or inherits from Tree\n",
+    "    >>> b = Tree(2, [Tree(3)])\n",
+    "    >>> t = Tree(1, [b, Tree(4)])\n",
+    "    >>> t\n",
+    "    Tree(1, [Tree(2, [Tree(3)]), Tree(4)])\n",
+    "    >>> print(t)\n",
+    "    1\n",
+    "      2\n",
+    "        3\n",
+    "      4\n",
+    "    \"\"\"\n",
+    "    def __init__(self, label, branches=[]):\n",
+    "        self.label = label\n",
+    "        for branch in branches:\n",
+    "            assert isinstance(branch, Tree) \n",
+    "            self.branches = list(branches)\n",
+    "    def is_leaf(self):\n",
+    "        return not self.branches\n",
+    "        \n",
+    "\n",
+    "def exclude(t, x):\n",
+    "\n",
+    "    \"\"\"\n",
+    "    Implement exclude, which takes a Tree instance t and a value x. It returns a Tree containing the \n",
+    "    root node of t as well as each non-root node of t with a label not equal to x. \n",
+    "    The parent of a node in the result is its nearest ancestor node that is not excluded. \n",
+    "    The input t must not be modified.\n",
+    "    \n",
+    "    Return a Tree with the non-root nodes of t whose labels are not equal to x.\n",
+    "    >>> t = Tree(1, [Tree(2, [Tree(2), Tree(3)]), Tree(4, [Tree(1)])])\n",
+    "    >>> exclude(t, 2)\n",
+    "    Tree(1, [Tree(3), Tree(4, [Tree(1)])])\n",
+    "    >>> t # t is not changed\n",
+    "    Tree(1, [Tree(2, [Tree(2), Tree(3)]), Tree(4, [Tree(1)])])\n",
+    "    >>> exclude(t, 1) # The root node cannot be excluded\n",
+    "    Tree(1, [Tree(2, [Tree(2), Tree(3)]), Tree(4)])\n",
+    "    \"\"\"\n",
+    "    filtered_branches = map(lambda y: exclude(y, x), t.branches)\n",
+    "    \n",
+    "    bs = []\n",
+    "    \n",
+    "    for b in filtered_branches:\n",
+    "        if b.label == x:\n",
+    "            bs.extend(b.branches)\n",
+    "        else:\n",
+    "            bs.append(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "all(s) # iterates through a list and checks boolean value. all elements must be true for it to return true, if one is false, return false"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "-3\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = all(map(print, range(-3, 3)))\n",
+    "\n",
+    "\n",
+    "\"\"\"\n",
+    "map gets python ready to print all of range(-3, 3), creates an object\n",
+    "Iterator is all, and map waits for it\n",
+    "\n",
+    "-3\n",
+    "-2\n",
+    "-1\n",
+    "0\n",
+    "1\n",
+    "2\n",
+    "\n",
+    "In python3 terminal:\n",
+    "    -3 \n",
+    "    False # because the return value is None, for all elements. None is a False value and it stops, printing 3\n",
+    "\"\"\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

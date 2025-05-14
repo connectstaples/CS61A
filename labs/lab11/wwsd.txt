@@ -1,0 +1,66 @@
+#| 
+WWSD?
+
+scm> '(1 x 3)
+? (1 x 3)
+-- OK! --
+
+scm> (define x 2)
+? x
+-- OK! --
+
+scm> `(1 x 3)
+? (1 x 3
+-- Not quite. Try again! --
+
+? (1 x 3)
+-- OK! --
+
+scm> `(1 ,x 3)
+? (1, x 3) 
+-- Not quite. Try again! --
+
+? (1 2 3)
+-- OK! --
+
+scm> `(1 x ,3)
+? (1 x 3) 
+-- OK! --
+
+scm> `(1 (,x) 3)
+? (1 (2) 3)
+-- OK! --
+
+scm> `(1 ,(+ x 2) 3)
+? (1 (4) 3) 
+-- Not quite. Try again! --
+
+? (1 (+ 2 2) 3)
+-- Not quite. Try again! --
+
+? (1 (+ x2) 3)
+-- Not quite. Try again! --
+
+? (1 (+ x 2) 3)
+-- Not quite. Try again! --
+
+? Error
+-- Not quite. Try again! --
+
+? (1 4 3) 
+-- OK! --
+
+scm> (define y 3)
+? y
+-- OK! --
+
+scm> `(x ,(* y x) y)
+? (x 6 y) 
+-- OK! --
+
+scm> `(1 ,(cons x (list y 4)) 5)
+? (1 (2 3 4) 5) ; nil must be the (list y 4)
+-- OK! --
+
+
+|# 

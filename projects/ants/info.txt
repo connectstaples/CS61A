@@ -1,0 +1,1158 @@
+**How game works (question 1)**
+
+Problem 0 > Suite 1 > Case 1
+(cases remaining: 9)
+
+Q: What is the significance of an Insect's health attribute? Does this
+value change? If so, how?
+Choose the number of the correct choice:
+0) It represents the strength of an insect against attacks, which
+   doesn't change throughout the game
+1) It represents health protecting the insect, so the insect can only
+   be damaged when its health reaches 0
+2) It represents the amount of health the insect has left, so the
+   insect is eliminated when it reaches 0
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 2
+(cases remaining: 8)
+
+Q: Which of the following is a class attribute of the Insect class?
+Choose the number of the correct choice:
+0) bees
+1) damage
+2) health
+3) place
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 3
+(cases remaining: 7)
+
+Q: Is the health attribute of the Ant class an instance attribute or class attribute? Why?
+Choose the number of the correct choice:
+0) instance, each Ant starts out with a different amount of health
+1) class, when one Ant gets damaged, all ants receive the same amount of damage
+2) instance, each Ant instance needs its own health value
+3) class, Ants of the same subclass all have the same amount of starting health
+? 
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) instance, each Ant starts out with a different amount of health
+1) class, when one Ant gets damaged, all ants receive the same amount of damage
+2) instance, each Ant instance needs its own health value
+3) class, Ants of the same subclass all have the same amount of starting health
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 4
+(cases remaining: 6)
+
+Q: Is the damage attribute of an Ant subclass (such as ThrowerAnt) an
+instance or class attribute? Why?
+Choose the number of the correct choice:
+0) instance, each Ant does damage to bees at different rates
+1) instance, the damage an Ant depends on where the Ant is
+2) class, all Ants of the same subclass deal the same damage
+3) class, all Ants deal the same damage
+? 0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) instance, each Ant does damage to bees at different rates
+1) instance, the damage an Ant depends on where the Ant is
+2) class, all Ants of the same subclass deal the same damage
+3) class, all Ants deal the same damage
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) instance, each Ant does damage to bees at different rates
+1) instance, the damage an Ant depends on where the Ant is
+2) class, all Ants of the same subclass deal the same damage
+3) class, all Ants deal the same damage
+? 2
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 5
+(cases remaining: 5)
+
+Q: Which class do both Ant and Bee inherit from?
+Choose the number of the correct choice:
+0) Place
+1) Insect
+2) Bee
+3) Ant
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 6
+(cases remaining: 4)
+
+Q: What do instances of Ant and instances of Bee have in common? Please choose the most correct answer.
+Choose the number of the correct choice:
+0) Ants and Bees both have the attributes health, damage, and place
+   and the methods reduce_health and action
+1) Ants and Bees both have the attribute damage and the methods
+   reduce_health and action
+2) Ants and Bees both take the same action each turn
+3) Ants and Bees have nothing in common
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 7
+(cases remaining: 3)
+
+Q: How many insects can be in a single Place at any given time in the
+game (before Problem 8)?
+Choose the number of the correct choice:
+0) Only one insect can be in a single Place at a time
+1) There can be one Bee and many Ants in a single Place
+2) There is no limit on the number of insects of any type in a single Place
+3) There can be one Ant and many Bees in a single Place
+? 0
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) Only one insect can be in a single Place at a time
+1) There can be one Bee and many Ants in a single Place
+2) There is no limit on the number of insects of any type in a single Place
+3) There can be one Ant and many Bees in a single Place
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) Only one insect can be in a single Place at a time
+1) There can be one Bee and many Ants in a single Place
+2) There is no limit on the number of insects of any type in a single Place
+3) There can be one Ant and many Bees in a single Place
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 8
+(cases remaining: 2)
+
+Q: What does a Bee do during one of its turns?
+Choose the number of the correct choice:
+0) The bee flies to the nearest Ant and attacks it
+1) The bee stings the ant in its place or moves to the next place if there is no ant in its place
+2) The bee moves to the next place, then stings the ant in that place
+3) The bee stings the ant in its place and then moves to the next place
+? 3
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) The bee flies to the nearest Ant and attacks it
+1) The bee stings the ant in its place or moves to the next place if there is no ant in its place
+2) The bee moves to the next place, then stings the ant in that place
+3) The bee stings the ant in its place and then moves to the next place
+? 2
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) The bee flies to the nearest Ant and attacks it
+1) The bee stings the ant in its place or moves to the next place if there is no ant in its place
+2) The bee moves to the next place, then stings the ant in that place
+3) The bee stings the ant in its place and then moves to the next place
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 0 > Suite 1 > Case 9
+(cases remaining: 1)
+
+Q: When is the game lost?
+Choose the number of the correct choice:
+0) When no ants are left on the map
+1) When the bees enter the colony
+2) When any bee reaches the end of the tunnel or when the Queen Ant is killed
+3) When any bee reaches the end of the tunnel and the Queen Ant is killed
+4) When the colony runs out of food
+? 1
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) When no ants are left on the map
+1) When the bees enter the colony
+2) When any bee reaches the end of the tunnel or when the Queen Ant is killed
+3) When any bee reaches the end of the tunnel and the Queen Ant is killed
+4) When the colony runs out of food
+? 3
+-- Not quite. Try again! --
+
+Choose the number of the correct choice:
+0) When no ants are left on the map
+1) When the bees enter the colony
+2) When any bee reaches the end of the tunnel or when the Queen Ant is killed
+3) When any bee reaches the end of the tunnel and the Queen Ant is killed
+4) When the colony runs out of food
+? 2
+-- OK! --
+
+
+**For Question 1:**
+
+Q: What type of attribute is food_cost?
+
+0) instance, the food_cost of an Ant depends on the location it is placed
+1) class, all Ants of the same subclass cost the same to place
+2) instance, the food_cost of an Ant is randomized upon initialization
+3) class, all Ants cost the same to place no matter what type of Ant it is
+? 1
+-- OK! --
+
+
+>>> from ants import *
+>>> from ants_plans import *
+>>> Ant.food_cost
+? 0
+-- OK! --
+
+>>> Ant.food_cost
+0
+>>> HarvesterAnt.food_cost
+2
+>>> ThrowerAnt.food_cost
+3
+
+
+>>> from ants import *
+>>> from ants_plans import *
+>>> # Testing HarvesterAnt action
+>>> # Create a test layout where the colony is a single row with 9 tiles
+>>> beehive = Hive(make_test_assault_plan())
+>>> gamestate = GameState(beehive, ant_types(), dry_layout, (1, 9))
+>>> #
+>>> gamestate.food = 4
+>>> harvester = HarvesterAnt()
+>>> # Note: initializing an Ant doesn't cost food,
+>>> # only deploying an Ant in the game layout does.
+>>> # For this test case, Ants can still take actions
+>>> # without being deployed in the game layout.
+>>> gamestate.food
+4
+-- OK! -- 
+
+>>> harvester.action(gamestate) # executing harvester's action method. this symbolizes the ant taking one turn.
+>>> gamestate.food
+
+? 5
+-- OK! --
+
+>>> harvester.action(gamestate) # harvester's action is executed again.
+>>> gamestate.food
+? 6
+
+
+**Questions 2**
+
+Q: What does a Place represent in the game?
+Choose the number of the correct choice:
+0) The entire space where the game takes place
+1) A single tile that an Ant can be placed on and that connects to
+   other Places
+2) Where the bees start out in the game
+3) The tunnel that bees travel through
+? 1
+-- OK! --
+
+Q: p is a Place whose entrance is q and exit is r (q and r are not None). When is p.entrance first set to a non-None value?
+Choose the number of the correct choice:
+0) When p is constructed
+1) When q is constructed
+2) Never, it is always set to None
+? 1
+-- OK! --
+
+
+
+Q: p is a Place whose entrance is q and exit is r (q and r are not None). When is p.exit first set to a non-None value?
+
+Choose the number of the correct choice:
+0) When q is constructed
+1) Never, it is always set to None
+2) When p is constructed
+? 2
+-- OK! --
+
+
+
+>>> from ants import *
+>>> from ants_plans import *
+>>> #
+>>> # Create a test layout where the gamestate is a single row with 3 tiles
+>>> beehive, layout = Hive(make_test_assault_plan()), dry_layout
+>>> dimensions = (1, 3)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Simple test for Place
+>>> place0 = Place('place_0')
+>>> print(place0.exit)
+None
+
+>>> print(place0.entrance)
+? None
+-- OK! --
+
+>>> place1 = Place('place_1', place0)
+>>> place1.exit is place0
+True
+>>> place0.entrance is place1
+? True
+-- OK! --
+
+
+**Problem 3 Questions** 
+
+Q: What Bee should a ThrowerAnt throw at?
+Choose the number of the correct choice:
+0) The ThrowerAnt throws at a random Bee in its own Place
+1) The ThrowerAnt finds the nearest place including and in front of its
+   own place that has Bees and throws at a random Bee in that place
+2) The ThrowerAnt finds the nearest place in either direction that has
+   Bees and throws at a random Bee in that place
+3) The ThrowerAnt finds the nearest place behind its own place
+   that has Bees and throws at a random Bee in that place
+? 
+1
+-- OK! --
+
+Q: How do you get the Place object in front of another Place object?
+Choose the number of the correct choice:
+0) Increment the place by 1
+1) The place's entrance instance attribute
+2) Decrement the place by 1
+3) The place's exit instance attribute
+? 
+1
+-- OK! --
+
+Q: What is the entrance of the first Place in a tunnel (i.e. where do the bees enter from)?
+Choose the number of the correct choice:
+0) None
+1) An empty Place
+2) The Hive
+2
+-- OK! --
+
+Q: How can you determine if a given Place is the Hive?
+Choose the number of the correct choice:
+0) by using the is_hive attribute of the place instance
+1) by checking the ant attribute of the place instance
+2) by checking the bees attribute of the place instance
+? 0
+-- OK! --
+
+
+Q: What should nearest_bee return if there is no Bee in front of the ThrowerAnt in the tunnel?
+0) None
+1) The closest Bee behind the ThrowerAnt
+2) A random Bee in the Hive
+? 0
+-- OK! --
+
+
+Problem 3 > Suite 2 > Case 1
+(cases remaining: 7)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> thrower = ThrowerAnt()
+>>> ant_place = gamestate.places["tunnel_0_0"]
+>>> ant_place.add_insect(thrower)
+>>> #
+>>> # Testing nearest_bee
+>>> near_bee = Bee(2) # A Bee with 2 health
+>>> far_bee = Bee(3)  # A Bee with 3 health
+>>> hive_bee = Bee(4) # A Bee with 4 health
+>>> hive_place = gamestate.beehive
+>>> hive_place.is_hive # Check if this place is the Hive
+? True
+-- OK! --
+>>> hive_place.add_insect(hive_bee)
+>>> thrower.nearest_bee() is hive_bee # Bees in the Hive can never be attacked
+? False
+-- OK! --
+
+>>> near_place = gamestate.places['tunnel_0_3']
+>>> far_place = gamestate.places['tunnel_0_6']
+>>> near_place.is_hive # Check if this place is the Hive
+? False
+-- OK! --
+>>> near_place.add_insect(near_bee)
+>>> far_place.add_insect(far_bee)
+>>> nearest_bee = thrower.nearest_bee()
+>>> thrower.place is ant_place    # Don't change self.place!
+? True
+-- OK! --
+
+
+>>> nearest_bee is far_bee
+
+? False
+-- OK! --
+
+
+>>> nearest_bee is near_bee
+? True
+-- OK! --
+
+
+>>> nearest_bee.health
+? 2
+-- OK! --
+
+>>> thrower.action(gamestate)    # Attack! ThrowerAnts do 1 damage
+>>> near_bee.health
+? 1
+-- OK! --
+
+>>> far_bee.health
+? 3
+-- OK! --
+
+>>> thrower.place is ant_place    # Don't change self.place!
+True
+-- OK! --
+
+
+**** Part 4  ****
+What constraint does a regular ThrowerAnt have on its throwing distance?
+Choose the number of the correct choice:
+0) A regular ThrowerAnt can only attack Bees at most 3 places away
+1) A regular ThrowerAnt can only attack Bees at most 5 places away
+2) A regular ThrowerAnt can only attack Bees at least 3 places away
+3) There is no restriction on how far a regular ThrowerAnt can throw
+? 3
+-- OK! --
+
+Q: What class do ShortThrower and LongThrower inherit from?
+Choose the number of the correct choice:
+0) ShortThrower
+1) Bee
+2) ThrowerAnt
+3) LongThrower
+? 2
+-- OK! --
+
+
+Q: What constraint does a LongThrower have on its throwing distance?
+Choose the number of the correct choice:
+1) A LongThrower can only attack Bees at least 5 places away
+-- OK! --
+
+Q: What constraint does a ShortThrower have on its throwing distance?
+Choose the number of the correct choice:
+0) A ShortThrower can only attack Bees at least 3 places away
+1) A ShortThrower can only attack Bees at most 5 places away
+2) There is no restriction on how far a ShortThrower can throw
+3) A ShortThrower can only attack Bees at most 3 places away
+? 3
+-- OK! --
+
+
+Q: With the addition of these new ThrowerAnt subclasses, we must modify
+our definition of nearest_bee. Now what Bee should ThrowerAnts throw
+at?
+Choose the number of the correct choice:
+0) The closest random Bee in front of it within range
+1) Any Bee within range
+2) Any Bee in its current Place
+3) The closest random Bee behind it within range
+? 0
+-- OK! --
+
+>>> from ants import *
+>>> 
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> ShortThrower.food_cost
+2
+>>> LongThrower.food_cost
+2
+
+>>> short_t = ShortThrower()
+>>> long_t = LongThrower()
+>>> short_t.health
+1
+>>> long_t.health
+1
+
+
+*** Problem 5 ***
+
+Problem 5 > Suite 1 > Case 1
+(cases remaining: 16)
+
+Q: How can you obtain the current place of a FireAnt?
+Choose the number of the correct choice:
+0) By accessing the place instance attribute, which is the name of
+   some Place object
+1) By calling the FireAnt constructor
+2) By calling the Place constructor, passing in the FireAnt instance
+3) By accessing the place instance attribute, which is a Place object
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 1 > Case 2
+(cases remaining: 15)
+
+Q: How can you obtain all of the Bees currently in a given place?
+Choose the number of the correct choice:
+0) By accessing the bees instance attribute, which is a dictionary of
+   Bee objects
+1) By calling the Bee constructor, passing in the place instance
+2) By calling the add_insect method on the place instance
+3) By accessing the bees instance attribute, which is a list of Bee
+   objects
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 5 > Suite 1 > Case 3
+(cases remaining: 14)
+
+Q: Can you iterate over a list while mutating it?
+Choose the number of the correct choice:
+0) Yes, you can mutate a list while iterating over it with no problems
+1) Yes, but you should iterate over a copy of the list to avoid skipping
+   elements
+2) No, Python doesn't allow list mutation on a list that is being
+   iterated through
+? 1
+-- OK! --
+
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> 
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> fire = FireAnt()
+>>> 
+>>> FireAnt.food_cost
+5
+>>> fire.health
+3
+>>> 
+
+
+Problem 5 > Suite 2 > Case 3
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing fire does damage to all Bees in its Place
+>>> place = gamestate.places['tunnel_0_4']
+>>> fire = FireAnt(health=1)
+>>> place.add_insect(fire)        # Add a FireAnt with 1 health
+>>> place.add_insect(Bee(3))      # Add a Bee with 3 health
+>>> place.add_insect(Bee(5))      # Add a Bee with 5 health
+>>> len(place.bees)               # How many bees are there?
+? 2
+-- OK! --
+
+
+>>> place.bees[0].action(gamestate)  # The first Bee attacks FireAnt
+>>> fire.health
+? 0
+-- OK! --
+
+>>> fire.place is None
+? True
+-- OK! --
+
+>>> len(place.bees)               # How many bees are left?
+? 1
+-- OK! --
+
+>>> place.bees[0].health           # What is the health of the remaining Bee?
+
+? 1
+-- OK! --
+
+
+---------------------------------------------------------------------
+Problem 5 > Suite 2 > Case 4
+(cases remaining: 10)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> place = gamestate.places['tunnel_0_4']
+>>> ant = FireAnt(health=1)           # Create a FireAnt with 1 health
+>>> place.add_insect(ant)      # Add a FireAnt to place
+>>> ant.place is place
+? True
+-- OK! --
+
+>>> place.remove_insect(ant)   # Remove FireAnt from place
+>>> ant.place is place         # Is the ant's place still that place?
+? False
+-- OK! --
+
+
+*** Problem 6 ***
+Q: What class does WallAnt inherit from?
+Choose the number of the correct choice:
+0) HungryAnt
+1) The WallAnt class does not inherit from any class
+2) Ant
+3) ThrowerAnt
+? 2
+-- OK! --
+
+Q: What is a WallAnt's action?
+Choose the number of the correct choice:
+0) A WallAnt reduces its own health by 1 each turn
+1) A WallAnt attacks all the Bees in its place each turn
+2) A WallAnt takes no action each turn
+3) A WallAnt increases its own health by 1 each turn
+? 2
+-- OK! --
+
+Q: Where do Ant subclasses inherit the action method from?
+0) Ant subclasses inherit the action method from the Ant class
+1) Ant subclasses inherit the action method from the Insect class
+2) Ant subclasses do not inherit the action method from any class
+? 1
+-- OK! --
+Q: If a subclass of Ant does not override the action method, what is the
+default action?
+Choose the number of the correct choice:
+0) Throw a leaf at the nearest Bee
+1) Move to the next place
+2) Reduce the health of all Bees in its place
+3) Nothing
+? 3
+-- OK! --
+
+
+*** Problem 7 ***
+Q: Should cooldown be an instance or class attribute? Why?
+Choose the number of the correct choice:
+0) instance, each HungryAnt instance chews independently of other
+   HungryAnt instances
+1) class, all HungryAnt instances in the game chew simultaneously
+2) instance, all HungryAnt instances in the game chew simultaneously
+3) class, each HungryAnt instance chews independently of other
+   HungryAnt instances
+? 0 
+-- OK! --
+
+Q: When is a HungryAnt able to eat a Bee?
+Choose the number of the correct choice:
+0) Whenever a Bee is in its place
+1) Each turn
+2) When it is chewing, i.e. when its cooldown attribute is at least 1
+3) When it is not chewing, i.e. when its cooldown attribute is 0
+? 3
+-- OK! --
+
+---------------
+
+Q: When a HungryAnt is able to eat, which Bee does it eat?
+Choose the number of the correct choice:
+
+0) The closest Bee behind it
+1) The closest Bee in either direction
+2) A random Bee in the same place as itself
+3) The closest Bee in front of it
+? 2
+
+Problem 7 > Suite 2 > Case 1
+(cases remaining: 13)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing HungryAnt parameters
+>>> hungry = HungryAnt()
+>>> HungryAnt.food_cost
+? 4
+-- OK! --
+
+>>> hungry.health
+? 1
+-- OK! --
+
+>>> hungry.chew_cooldown
+? 3
+-- OK! --
+
+>>> hungry.cooldown
+? 0
+-- OK! --
+
+
+Problem 7 > Suite 2 > Case 5
+(cases remaining: 9)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing HungryAnt eats and chews
+>>> hungry = HungryAnt()
+>>> super_bee, wimpy_bee = Bee(1000), Bee(1)
+>>> place = gamestate.places["tunnel_0_0"]
+>>> place.add_insect(hungry)
+>>> place.add_insect(super_bee)
+>>> hungry.action(gamestate)         # super_bee is no match for HungryAnt!
+>>> super_bee.health
+? 0
+-- OK! --
+
+>>> place.add_insect(wimpy_bee)
+>>> for _ in range(3):
+...     hungry.action(gamestate)     # chewing...not eating
+>>> wimpy_bee.health
+? 1
+-- OK! --
+
+>>> hungry.action(gamestate)         # back to eating!
+>>> wimpy_bee.health
+? 0
+-- OK! --
+
+*** Problem 8 ***
+
+Q: Where is the ant contained by a ContainerAnt stored?
+Choose the number of the correct choice:
+0) Nowhere, a ContainerAnt has no knowledge of the ant that it's protecting
+1) In the ContainerAnt's ant_contained class attribute
+2) In its place's ant instance attribute
+3) In the ContainerAnt's ant_contained instance attribute
+? 3 
+OK
+
+Q: How does a ContainerAnt guard its ant?
+Choose the number of the correct choice:
+0) By protecting the ant from Bees and allowing it to perform its original action
+1) By attacking Bees that try to attack it
+2) By allowing Bees to pass without attacking
+3) By increasing the ant's health
+? 0
+-- OK! --
+
+
+Problem 8a > Suite 2 > Case 1
+(cases remaining: 4)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> gamestate = GameState(beehive, ant_types(), layout, (1, 9))
+>>> #
+>>> container = ContainerAnt(1)
+>>> container2 = ContainerAnt(2)
+>>> container3 = ContainerAnt(3)
+>>> throw_long = LongThrower(1)
+>>> container.can_contain(container2)
+? False
+-- OK! --
+
+>>> container3.can_contain(throw_long)
+? True
+-- OK! --
+
+
+---------------------------------------------------------------------
+Problem 8a > Suite 2 > Case 2
+(cases remaining: 3)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> gamestate = GameState(beehive, ant_types(), layout, (1, 9))
+>>> #
+>>> container = ContainerAnt(2)
+>>> friend = HungryAnt()
+>>> container.ant_contained is None
+? True
+-- OK! --
+
+>>> container.store_ant(friend)
+>>> container.ant_contained is friend
+? True
+-- OK! --
+Problem 8a > Suite 2 > Case 3
+(cases remaining: 2)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), dry_layout
+>>> gamestate = GameState(beehive, ant_types(), layout, (1, 9))
+>>> #
+>>> container = ContainerAnt(2)
+>>> container.ant_contained is not None
+? False
+-- OK! --
+
+
+>>> friend = HungryAnt()
+>>> container.store_ant(friend)
+>>> container.ant_contained is friend
+? True
+-- OK! --
+
+
+>>> place = gamestate.places["tunnel_0_0"]
+>>> place.add_insect(container)
+>>> friend.place = place
+>>> bee = Bee(3)
+>>> place.add_insect(bee)
+>>> container.action(gamestate)  # Container holds a HungryAnt that loves to eat!
+>>> bee.health
+? 0
+-- OK! --
+
+>>> container.can_contain(FireAnt()) # Container already holds another ant!
+? False
+-- OK! --
+
+*** 08b ***
+Q: When can a second Ant be added to a place that already contains an Ant?
+Choose the number of the correct choice:
+0) There can never be two Ant instances in the same place
+1) When exactly one of the Ant instances is a container
+2) When both Ant instances are containers
+3) When exactly one of the Ant instances is a container and the
+   container ant does not already contain another ant
+? 3
+-- OK! --
+
+
+Q: If two Ants occupy the same Place, what is stored in that place's ant
+instance attribute?
+0) Whichever Ant was placed there first
+1) A list containing both Ants
+2) The Ant being contained
+3) The Container Ant
+? 3
+-- OK! --
+
+Problem 8b > Suite 1 > Case 3
+(cases remaining: 5)
+
+Q: Which Ant does a ContainerAnt guard?
+Choose the number of the correct choice:
+0) All the Ant instances in the gamestate
+1) A random Ant instance in the gamestate
+2) The Ant instance in the place closest to its own place
+3) The Ant instance that is in the same place as itself
+? 3
+OK
+
+*** 08c ***
+
+Q: Where does a ProtectorAnt directly inherit all of its instance attributes from?
+0) Insect class
+1) ContainerAnt class
+2) the ProtectorAnt does not inherit from any other class
+3) Ant class
+? 1
+-- OK! --
+
+>>> from ants import *
+>>> protector = ProtectorAnt()
+>>> ProtectorAnt.food_cost
+4
+>>> protector.health
+2
+>>> 
+
+
+*** Problem 9 ** 
+Q: Besides costing more to place, what is the only difference between a
+TankAnt and a ProtectorAnt?
+Choose the number of the correct choice:
+0) A TankAnt has greater health than a ProtectorAnt
+1) A TankAnt increases the damage of the ant it contains
+2) A TankAnt can contain multiple ants
+3) A TankAnt does damage to all Bees in its place each turn
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 9 > Suite 2 > Case 1
+(cases remaining: 12)
+
+>>> from ants_plans import *
+>>> from ants import *
+>>> beehive, layout = Hive(make_test_assault_plan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing TankAnt parameters
+>>> TankAnt.food_cost
+? 6
+-- OK! --
+
+>>> TankAnt.damage
+? 1
+-- OK! --
+
+>>> tank = TankAnt()
+>>> tank.health
+? 2
+-- OK! --
+
+
+*** Problem 10 *** 
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 1
+(cases remaining: 8)
+
+Q: What happens when an insect is added to a Water Place?
+Choose the number of the correct choice:
+0) If the insect is not waterproof, its health is reduced to 0.
+   Otherwise, nothing happens.
+1) The insect's health is reduced to 0.
+2) The insect goes for a swim.
+3) Nothing happens.
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 2
+(cases remaining: 7)
+
+Q: What type of attribute should "is_waterproof" be?
+Choose the number of the correct choice:
+0) class, all ants of a subclass should either be waterproof or not
+1) instance, the is_waterproof attribute depends on the amount of health a given ant has left
+2) class, all ants should be waterproof
+3) instance, the is_waterproof attribute depends on the given place of an ant
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 1 > Case 3
+(cases remaining: 6)
+
+Q: What method deals damage to an Insect and removes it from its place
+if its health reaches 0?
+Choose the number of the correct choice:
+0) sting, in the Bee class
+1) remove_ant, in the GameState class
+2) remove_insect, in the Place class
+3) reduce_health, in the Insect class
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 1
+(cases remaining: 5)
+
+-- Already unlocked --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 2
+(cases remaining: 4)
+
+>>> from ants import *
+>>> from ants_plans import *
+>>> beehive, layout = Hive(make_test_assault_plan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing water with soggy (non-waterproof) bees
+>>> test_bee = Bee(1000000)
+>>> test_bee.is_waterproof = False    # Make Bee non-waterproof
+>>> test_water = Water('Water Test2')
+>>> test_water.add_insect(test_bee)
+>>> test_bee.health
+? 0
+-- OK! --
+
+>>> len(test_water.bees)
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 10 > Suite 2 > Case 3
+(cases remaining: 3)
+
+>>> from ants import *
+>>> from ants_plans import *
+>>> beehive, layout = Hive(make_test_assault_plan()), dry_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing water with waterproof bees
+>>> test_bee = Bee(1)
+>>> test_water = Water('Water Test3')
+>>> test_water.add_insect(test_bee)
+>>> test_bee.health
+? 1
+-- OK! --
+
+>>> test_bee in test_water.bees
+? True
+-- OK! --
+
+*** Problem 11 ***
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 1
+(cases remaining: 9)
+
+Q: How is a ScubaThrower different from a regular ThrowerAnt?
+Choose the number of the correct choice:
+0) It is waterproof, so its health won't be reduced to 0 when it is
+   placed in a Water Place
+1) It throws water pellets instead of leaves
+2) It is not waterproof, so its health will be reduced to 0 when it is
+   placed in a Water Place
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 1 > Case 2
+(cases remaining: 8)
+
+Q: Which inherited attributes and/or methods should ScubaThrower
+override?
+Choose the number of the correct choice:
+0) is_waterproof, action
+1) food_cost, action, damage
+2) name, nearest_bee, is_waterproof
+3) name, is_waterproof, food_cost
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 2 > Case 1
+(cases remaining: 7)
+
+>>> from ants import *
+>>> # Testing ScubaThrower parameters
+>>> scuba = ScubaThrower()
+>>> ScubaThrower.food_cost
+? 6
+-- OK! --
+
+>>> scuba.health
+? 1
+-- OK! --
+
+>>> scuba.name
+
+? 'Scuba'
+-- OK! --
+
+>>> scuba.is_waterproof
+? True
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 3 > Case 1
+(cases remaining: 6)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), wet_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing if ScubaThrower is waterproof
+>>> water = gamestate.places["water_0_2"]
+>>> ant = ScubaThrower()
+>>> water.add_insect(ant)
+>>> ant.place is water
+? True
+-- OK! --
+
+>>> ant.health
+? 1
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 11 > Suite 3 > Case 2
+(cases remaining: 5)
+
+>>> from ants import *
+>>> beehive, layout = Hive(AssaultPlan()), wet_layout
+>>> dimensions = (1, 9)
+>>> gamestate = GameState(beehive, ant_types(), layout, dimensions)
+>>> #
+>>> # Testing that ThrowerAnt is not waterproof
+>>> water = gamestate.places["water_0_2"]
+>>> ant = ThrowerAnt()
+>>> ant.is_waterproof
+? False
+-- OK! --
+
+>>> water.add_insect(ant)
+>>> ant.place is water
+? False
+-- OK! --
+>>> ant.health
+? 0
+-- OK! --
+
+
+*** Problem 12 ***
+
+Problem 12 > Suite 1 > Case 1
+(cases remaining: 12)
+
+Q: What does a QueenAnt do each turn?
+Choose the number of the correct choice:
+0) Doubles the damage of all the ants in front of her (that haven't
+   already been doubled)
+1) Doubles the damage of all the ants in the colony (that haven't
+   already been doubled)
+2) Doubles the damage of all the ants behind her (that haven't
+   already been doubled)
+3) Attacks the nearest bee and doubles the damage of all the ants
+   behind her (that haven't already been doubled)
+? 3
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 12 > Suite 1 > Case 2
+(cases remaining: 11)
+
+Q: Under what circumstances do Ants lose the game?
+Choose the number of the correct choice:
+0) If a Bee reaches the end of a tunnel or a QueenAnt dies
+1) If a Bee attacks a QueenAnt
+2) If there are no ants left in the colony
+3) If a second QueenAnt is placed in the colony
+? 0
+-- OK! --
+
+---------------------------------------------------------------------
+Problem 12 > Suite 2 > Case 1
+(cases remaining: 10)
+
+>>> from ants import *
+>>> beehive = Hive(AssaultPlan())
+>>> dimensions = (2, 9)
+>>> gamestate = GameState(beehive, ant_types(), dry_layout, dimensions, food=100)
+>>> # Testing QueenAnt parameters
+>>> QueenAnt.food_cost
+? 7
+-- OK! --
+
+>>> queen = QueenAnt()
+>>> queen.health
+? 1
+-- OK! --
+
